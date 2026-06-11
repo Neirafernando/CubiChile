@@ -1,0 +1,28 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Base de datos local
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+
+# Archivos generados
+*.pdf
+*.xlsx
+exports/
+dist/
+build/
+
+# Sistema / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Backups locales
+*backup*.py
+*_roto.py
+
+# Variables privadas
+.env

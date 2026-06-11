@@ -1,0 +1,2 @@
+class CubicacionesView:
+    pass
