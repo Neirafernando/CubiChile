@@ -207,3 +207,92 @@ La aplicación no reemplaza la revisión profesional ni la validación técnica 
 Desarrollado por **Fernando Javier Bueno Neira**.
 
 Proyecto creado como parte de un proceso de aprendizaje, desarrollo de software y aplicación práctica al área de construcción, cubicaciones y presupuestos.
+
+
+
+cd ~/Documents/cubichile/cubichile
+
+cat >> README.md << 'EOF'
+
+---
+
+## Generar ejecutable para Windows
+
+CubiChile puede empaquetarse como aplicación de escritorio para Windows utilizando **PyInstaller**.
+
+> Importante: el archivo `.exe` debe generarse desde un equipo con Windows.  
+> No se recomienda generar el ejecutable de Windows directamente desde Linux.
+
+### 1. Clonar el proyecto en Windows
+
+Abrir PowerShell y ejecutar:
+
+```powershell
+cd $HOME\Desktop
+git clone https://github.com/Neirafernando/CubiChile.git
+cd CubiChile
+```
+
+Si no se tiene Git instalado, también se puede descargar el proyecto como archivo `.zip` desde GitHub y descomprimirlo en el Escritorio.
+
+### 2. Crear entorno virtual
+
+```powershell
+python -m venv venv
+```
+
+Activar el entorno virtual:
+
+```powershell
+.\venv\Scripts\activate
+```
+
+### 3. Instalar dependencias
+
+```powershell
+pip install -r requirements.txt
+```
+
+### 4. Probar la aplicación antes de empaquetar
+
+```powershell
+python main.py
+```
+
+Si la aplicación abre correctamente, se puede continuar con la generación del ejecutable.
+
+### 5. Instalar PyInstaller
+
+```powershell
+pip install pyinstaller
+```
+
+### 6. Generar el archivo `.exe`
+
+```powershell
+pyinstaller --noconfirm --onefile --windowed --name CubiChile main.py
+```
+
+### 7. Ubicación del ejecutable
+
+El archivo final quedará en:
+
+```text
+dist\CubiChile.exe
+```
+
+Ese archivo puede abrirse con doble click en Windows.
+
+### 8. Distribución recomendada
+
+Para entregar una versión portable inicial, se recomienda crear una carpeta con esta estructura:
+
+```text
+CubiChile Portable/
+├── CubiChile.exe
+└── data/
+```
+
+La carpeta `data/` se utiliza para almacenar la base de datos local de la aplicación.
+
+EOF
